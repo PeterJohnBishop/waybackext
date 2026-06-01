@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 280px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding: 16px;
+      background: #1a1a2e;
+      color: #e0e0e0;
+    }
+    h1 {
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: #7b68ee;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      color: #aaa;
+    }
+    select, input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #333;
+      border-radius: 6px;
+      background: #16213e;
+      color: #e0e0e0;
+      font-size: 13px;
+      margin-bottom: 12px;
+      outline: none;
+    }
+    select:focus, input:focus { border-color: #7b68ee; }
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+    .checkbox-row input { width: auto; margin: 0; }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #7b68ee;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #6c5ce7; }
+    .hint {
+      font-size: 10px;
+      color: #666;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .env-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .current-env {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 12px;
+      padding: 6px 8px;
+      background: #16213e;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Time Machine</h1>
+  <div class="current-env" id="currentEnv">Detecting current environment...</div>
+
+  <label>Environment</label>
+  <select id="env">
+    <option value="staging">Staging</option>
+    <option value="qa">QA</option>
+  </select>
+
+  <label>Build / PR Number</label>
+  <input type="text" id="buildNum" placeholder="e.g. 107808" />
+
+  <div class="checkbox-row">
+    <input type="checkbox" id="preservePath" checked />
+    <label for="preservePath" style="margin:0; text-transform:none; font-weight:normal;">Preserve current path</label>
+  </div>
+
+  <button id="go">Switch Environment</button>
+  <div class="hint">Loads the selected env + build in this tab</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

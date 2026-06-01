@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "ClickUp Time Machine",
+  "version": "1.0.0",
+  "description": "Switch between Prod/Staging/QA environments with a specific build number.",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ClickUp Time Machine"
+  }
+}
